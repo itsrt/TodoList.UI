@@ -85,7 +85,7 @@ Styling is intentionally minimal using HTML and CSS.
 
 Angular Material would be a strong choice for a production application, but for this exercise it would add additional surface area without demonstrating functionality that is central to the assessment.
 
-##Development Approach
+## Development Approach
 
 I developed the project using Visual Studio Code and made use of the editor's built-in IntelliSense and code completion features. These suggestions helped with syntax and common coding patterns while developing the application.
 
