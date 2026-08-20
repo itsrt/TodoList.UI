@@ -79,8 +79,14 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 
 
-## Styling Decision
+## Styling Decision and References
 
 Styling is intentionally minimal using HTML and CSS.
 
 Angular Material would be a strong choice for a production application, but for this exercise it would add additional surface area without demonstrating functionality that is central to the assessment.
+
+##Development Approach
+
+I developed the project using Visual Studio Code and made use of the editor's built-in IntelliSense and code completion features. These suggestions helped with syntax and common coding patterns while developing the application.
+
+I reviewed and adapted the suggested code to suit the application's requirements rather than treating the suggestions as final implementation. I also validated the implementation through the application's unit and integration tests and by testing the API through the .http file.
