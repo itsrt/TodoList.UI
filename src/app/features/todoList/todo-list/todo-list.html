@@ -1,0 +1,72 @@
+<div class="todo-list-container">
+    <header class="page-header">
+        <h1>Todo List - Daily Intentions Setting App</h1>
+        <p>Manage your life efficiently.</p>
+    </header>
+
+    <section class="todo-form-section">
+        <h2>Add a New Todo Item</h2>
+
+        <form [formGroup]="todoForm" (ngSubmit)="addTodoItem()">
+            <div class="form-field">
+                <label for="header">
+                    Header<span class="required">*</span></label>
+                <input id="header" type="text" formControlName="header" placeholder="Enter Todo Header" />
+                @if (todoForm.controls.header.touched && todoForm.controls.header.invalid) {
+                <span class="validation-error">
+                    <p>Header is required.</p>
+                </span>
+                }
+            </div>
+
+            <div class="form-field">
+                <label for="detail">Detail</label>
+                <textarea id="detail" row=2 formControlName="detail" placeholder="Enter Todo Detail"></textarea>
+            </div>
+
+            <div class="form-action">
+                <div class="form-field">
+                    <label for="completedBefore">Completed Before<span class="required">*</span></label>
+                    <input id="completedBefore" type="date" formControlName="completedBefore" />
+                    @if (todoForm.controls.completedBefore.touched && todoForm.controls.completedBefore.invalid) {
+                    <span class="validation-error">
+                        <p>Completed Before Date is required.</p>
+                    </span>
+                    }
+                </div>
+                <button type="submit" [disabled]="todoForm.invalid">Add Todo</button>
+            </div>
+        </form>
+    </section>
+    <section class="todo-list-section">
+        <h2>Your Todo List</h2>
+
+        @for (todo of todoList(); track todo.id){
+        <article class="todo-card">
+            <div class="todo-content">
+
+                <h2>{{ todo.header }}</h2>
+
+                <p class="description">{{ todo.detail }}</p>
+                <div class="todo-extra">
+                    <span>
+                        Created On: {{todo.createdOn}}
+                    </span>
+                    <span>
+                        Completed By: {{todo.completedBy}}
+                    </span>
+
+                </div>
+            </div>
+            <button type="button" (click)="deleteTodoItem(todo.id)" class="delete-button">
+                Delete
+            </button>
+        </article>
+
+        } @empty {
+        <div class="empty-state">
+            <p>No todos found.</p>
+        </div>
+        }
+    </section>
+</div>
